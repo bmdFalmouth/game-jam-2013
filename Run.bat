@@ -4,9 +4,9 @@ call bat\SetupSDK.bat
 call bat\SetupApplication.bat
 
 :target
-goto desktop
+::goto desktop
 ::goto android-debug
-::goto android-test
+goto android-test
 set INTERPRETER=-interpreter
 ::goto ios-debug
 ::goto ios-test
@@ -14,7 +14,7 @@ set INTERPRETER=-interpreter
 :desktop
 :: http://help.adobe.com/en_US/air/build/WSfffb011ac560372f-6fa6d7e0128cca93d31-8000.html
 
-set SCREEN_SIZE=NexusOne
+set SCREEN_SIZE=720
 ::set SCREEN_SIZE=iPhoneRetina
 
 :desktop-run
@@ -23,6 +23,8 @@ echo Starting AIR Debug Launcher with screen size '%SCREEN_SIZE%'
 echo.
 echo (hint: edit 'Run.bat' to test on device or change screen size)
 echo.
+::480x762:480x800
+::adl -screensize 720x1280:720x1280 "%APP_XML%" "%APP_DIR%"
 adl -screensize %SCREEN_SIZE% "%APP_XML%" "%APP_DIR%"
 if errorlevel 1 goto end
 goto end
