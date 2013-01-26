@@ -55,15 +55,16 @@ package
 		}
 
 		private function buttonPressed(pressedTime:int):String {
-			if ((pressedTime >= (shouldvePressed - progressError) && (pressedTime <= progressError))) {
+			if ((pressedTime >= (shouldvePressed - progressError) && (pressedTime <= (progressError+progressError))) {
 				return "good"
 			}
-			if ((pressedTime >= (shouldvePressed - averageError) && (pressedTime <= averageError))) {
+			else if ((pressedTime >= (shouldvePressed - averageError) && (pressedTime <= averageError))) {
 				return "average"
 			}
-			if ((pressedTime >= (shouldvePressed - badError) && (pressedTime <= badError))) {
+			else {
 				return "bad"
 			}
+		
 		}
 		
 		private function drawRandom(event:Event):void
