@@ -54,7 +54,7 @@ package
 			sm.defineState("Levels", LevelSelect);
 			sm.defineState("ECG", ECG);
 			sm.defineState("Intro", Intro);
-			sm.display("MainMenu");
+			sm.display("ECG");
 			addChild(sm);			
 		}
 		
