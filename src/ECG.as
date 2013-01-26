@@ -16,28 +16,10 @@ package
 		
 		private var wavePanel:CachedSprite;
 		
-<<<<<<< HEAD
 		private var line1:Sprite;
-		private var lastX:Number, lastY:Number, newX:Number, newY:Number;
-=======
 		private var indicator1:CachedSprite;
 		private var indicator2:CachedSprite;
 		private var indicator3:CachedSprite;
-		
-		private var line1:Sprite;
-		/*private var lastX:Number, lastY:Number, newX:Number, newY:Number;
->>>>>>> ECG v0.1
-		private var frameCounter:int=0;
-		private var progressError:int=10;
-		private var averageError:int=15;
-		private var badError:int=20;
-		private var frameRate:int = 30;
-		private var shouldvePressed:int;
-<<<<<<< HEAD
-		private var frequencyOfCalls:int =5; //on every (frequencyOfCalls) frames, the metronome will fire.
-=======
-		private var frequencyOfCalls:int =30; //on every (frequencyOfCalls) frames, the metronome will fire.*/
->>>>>>> ECG v0.1
 		
 		private var waveInt:int;
 		private var amplitude:int;

@@ -40,7 +40,7 @@ package
 		
 		public function showIntro(e:MouseEvent):void
 		{
-			Main.sm.display("Intro");
+			Main.sm.display("QRS");
 		}
 		
 		public function showAbout(e:MouseEvent):void

@@ -37,12 +37,11 @@ package
 	public class Scanner extends Sprite
 	{		
 		private var back:CachedSprite;
-		private var timePanel:CachedSprite;
 		private var heart:CachedSprite;
 		private var text:TextField;
 		
 		private var video:Video;
-		private var videoURL:String = "heart_normalish.flv";
+		private var videoURL:String = "heart_normal.flv";
         private var connection:NetConnection;
         private var stream:NetStream;
 		
@@ -66,20 +65,15 @@ package
 		public function Scanner() 
 		{			
 			video = new Video();
-			video.x = 45;
-			video.y = 650;
-			video.scaleX = 2;
-			video.scaleY = 2;
+			video.x = 1;
+			video.y = 500;
+			//video.scaleX = 2;
+			//video.scaleY = 2;
+			video.width = 720;
+			video.height = 720;
 			back = new CachedSprite(images.BACK);
-			timePanel = new CachedSprite(images.TIME_PANEL);
 			heart = new CachedSprite(images.HEART);
 			addChild(back);
-			addChild(timePanel);
-			//addChild(heart);
-			
-			timePanel.scaleY = 0.6666;
-			timePanel.scaleY = 0.6666;
-			timePanel.y = 190;
 			
 			heart.scaleX = 0.6666;
 			heart.scaleY = 0.6666;

@@ -69,6 +69,10 @@ package
 			sm.defineState("Simon", SimonGame);
 					
 			sm.display("MainMenu");
+
+					
+			sm.display("Intro");
+
 			addChild(sm);			
 		}
 		
