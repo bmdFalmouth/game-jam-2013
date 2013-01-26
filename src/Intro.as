@@ -26,12 +26,12 @@ package
 			addEventListener(MouseEvent.CLICK, showIntro);
 		}
 		
-		public function showIntro(e:MouseEvent)
+		public function showIntro(e:MouseEvent):void
 		{
 			changeScreen();
 		}
 		
-		private function changeScreen()
+		private function changeScreen():void
 		{
 			Main.sm.display("QRS");
 		}

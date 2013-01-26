@@ -10,25 +10,47 @@ package
 	 */
 	public class MainMenu extends Sprite 
 	{		
-		private var text:TextField;
+		private var background:CachedSprite;
+		private var playMenuButton:CachedSprite;
+		private var aboutMenuButton:CachedSprite;
+		private var helpMenuButton:CachedSprite;
 		
 		public function MainMenu() 
 		{
-			text = new TextField();
-			text.x = 20;
-			text.y = 20;
-			text.scaleX = 4;
-			text.scaleY = 4;
-			text.text = "Main Menu";
-			addChild(text);
+			background = new CachedSprite(images.MENU_BACKGROUND);
 			
-			addEventListener(MouseEvent.CLICK, showIntro);
+			playMenuButton = new CachedSprite(images.PLAY_MENU_BUTTON);
+			playMenuButton.y = 82;
+			
+			aboutMenuButton = new CachedSprite(images.ABOUT_MENU_BUTTON);
+			aboutMenuButton.y = 466;
+			
+			helpMenuButton = new CachedSprite(images.HELP_MENU_BUTTON);
+			helpMenuButton.y = 852;
+			
+			addChild(background);
+			addChild(playMenuButton);
+			addChild(aboutMenuButton);
+			addChild(helpMenuButton);
+			
+			playMenuButton.addEventListener(MouseEvent.CLICK, showIntro);
+			aboutMenuButton.addEventListener(MouseEvent.CLICK, showAbout);
+			helpMenuButton.addEventListener(MouseEvent.CLICK, showHelp);
 		}
 		
-		public function showIntro(e:MouseEvent)
+		public function showIntro(e:MouseEvent):void
 		{
-			text.text = "Clicked";
 			Main.sm.display("Intro");
+		}
+		
+		public function showAbout(e:MouseEvent):void
+		{
+			Main.sm.display("About");
+		}
+		
+		public function showHelp(e:MouseEvent):void
+		{
+			Main.sm.display("Help");
 		}
 	}
 }
