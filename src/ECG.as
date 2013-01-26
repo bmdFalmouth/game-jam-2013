@@ -15,9 +15,14 @@ package
 		private var wavePanel:CachedSprite;
 		
 		private var line1:Sprite;
-		private var line2:Sprite;
-		private var line3:Sprite;
-		private var line4:Sprite;
+		private var lastX:Number, lastY:Number, newX:Number, newY:Number;
+		private var frameCounter:int=0;
+		private var progressError:int=10;
+		private var averageError:int=15;
+		private var badError:int=20;
+		private var frameRate:int = 30;
+		private var shouldvePressed:int;
+		private var frequencyOfCalls:int =5; //on every (frequencyOfCalls) frames, the metronome will fire.
 		
 		private var waveInt:int;
 		private var amplitude:int;
@@ -51,9 +56,11 @@ package
 			line4 = new Sprite();
 			addChild(line4);
 			
+
 			waveInt = 10;
 			amplitude = 100;
 			drawWave();
+			addEventListener(Event.ENTER_FRAME, incrementCounter);
 		}
 		
 		private function animWave(e:Event):void
@@ -78,10 +85,54 @@ package
 			{
 				amplitude = Math.floor(Math.random() * (300 - 100 + 1)) + 100;  
 			}
+		}		
+		private function drawWave():void
+		{  
+			line1.graphics.clear();
+			line1.graphics.lineStyle(5, 0xff0000);
+			line1.graphics.moveTo(10, 875);
+			
+			addEventListener(Event.ENTER_FRAME, animWave);
+		}  
+		
+		//increments a counter,frame by frame. It also checks to see if the metronome method should execute a function on each frame.
+		private function incrementCounter():void {
+			if (frameCounter >= frameRate)
+			{
+				frameCounter = 0;
+			}
+			else {
+				frameCounter++;
+			}
+			metronome(frequencyOfCalls);
 		}
 		
-
-		private function drawWave():void
+		//when the button is pressed; call this method. It takes in when the button was pressed and compares it to when the button 
+		//should've been pressed and returns a string based on how accurate the user is
+		private function buttonPressed(pressedTime:int):String {
+			if ((pressedTime >= (shouldvePressed - progressError) && (pressedTime <= (progressError+progressError)))) {
+				return "good"
+			}
+			else if ((pressedTime >= (shouldvePressed - averageError) && (pressedTime <= averageError))) {
+				return "average"
+			}
+			else {
+				return "bad"	
+			}
+		
+		}
+		
+		//takes in a frequency in number of frames. Method checks if the counter is divisible by the frequency given. 
+		//If it is, then it executes a chosen method.
+		private function metronome(frequency:int):void {
+			if (frameCounter % frequency == 0)
+			{
+				//call method here
+				shouldvePressed = frameCounter;
+			}
+		}
+		
+		private function drawRandom(event:Event):void
 		{  
 			line1.graphics.clear();
 			line1.graphics.lineStyle(5, 0xff0000);

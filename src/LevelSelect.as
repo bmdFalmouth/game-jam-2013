@@ -1,6 +1,7 @@
 package  
 {
 	import flash.display.Sprite;
+	import flash.events.MouseEvent;
 	/**
 	 * ...
 	 * @author James Simpson
@@ -20,6 +21,18 @@ package
 			timePanel.scaleY = 0.6666;
 			timePanel.scaleY = 0.6666;
 			timePanel.y = 190;
+			
+			addEventListener(MouseEvent.CLICK, showIntro);
+		}
+		
+		public function showIntro(e:MouseEvent)
+		{
+			showECGGame();
+		}
+		
+		public function showECGGame():void 
+		{
+			Main.sm.display("ECG");
 		}
 		
 	}
