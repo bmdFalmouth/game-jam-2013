@@ -56,6 +56,8 @@ package
 			sm.defineState("Intro", Intro);
 			sm.defineState("Operate", OperateGame);
 			sm.defineState("Pulse",  PulseGame);
+			sm.defineState("Verbal", VerbalGame);
+			sm.defineState("Simon", SimonGame);
 					
 			sm.display("QRS");
 			addChild(sm);			
