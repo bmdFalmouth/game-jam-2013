@@ -8,33 +8,34 @@ package
 	 * ...
 	 * @author gnarles
 	 */
-	public class Intro extends Sprite 
+	public class About extends Sprite 
 	{
 		private var text:TextField;
 		
-		public function Intro() 
+		public function About() 
 		{
 			text = new TextField();
 			text.x = 20;
 			text.y = 20;
 			text.scaleX = 4;
 			text.scaleY = 4;
-			text.text = "Intro Screen";
+			text.text = "About - Back to the menu";
 			addChild(text);
 			
 			//Run video, if user touches the screen or the video ends then proceed to the Scanner screen.
-			addEventListener(MouseEvent.CLICK, showIntro);
+			addEventListener(MouseEvent.CLICK, showMainMenu);
 		}
 		
-		public function showIntro(e:MouseEvent):void
+		public function showMainMenu(e:MouseEvent):void
 		{
 			changeScreen();
 		}
 		
 		private function changeScreen():void
 		{
-			Main.sm.display("QRS");
+			Main.sm.display("MainMenu");
 		}
+		
 	}
 
 }

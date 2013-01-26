@@ -25,7 +25,7 @@ package
 			addEventListener(MouseEvent.CLICK, showIntro);
 		}
 		
-		public function showIntro(e:MouseEvent)
+		public function showIntro(e:MouseEvent):void
 		{
 			showECGGame();
 		}

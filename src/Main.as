@@ -50,10 +50,16 @@ package
 			
 			sm = new StateManager();
 			sm.defineState("MainMenu", MainMenu);
-			sm.defineState("QRS", Scanner);
-			sm.defineState("Levels", LevelSelect);
-			sm.defineState("ECG", ECG);
+			
 			sm.defineState("Intro", Intro);
+			sm.defineState("Help", Help);
+			sm.defineState("About", About);
+			
+			sm.defineState("QRS", Scanner);
+			
+			sm.defineState("Levels", LevelSelect);
+			
+			sm.defineState("ECG", ECG);
 			sm.defineState("Operate", OperateGame);
 			sm.defineState("Pulse",  PulseGame);
 			sm.defineState("Verbal", VerbalGame);
