@@ -5,10 +5,13 @@ package
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
+	import flash.media.Video;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.ui.Multitouch;
 	import flash.ui.MultitouchInputMode;
+	
+	import flash.media.Camera;
 	
 	/**
 	 * ...
@@ -17,6 +20,8 @@ package
 	public class Main extends Sprite 
 	{
 		private var text:TextField;
+		private var cam:Camera;
+		private var video:Video;
 		
 		public function Main():void 
 		{
@@ -35,10 +40,22 @@ package
 			text.y = 100;
 			text.defaultTextFormat = format5;
 			
-			graphics.lineStyle(10, 0x000000);
-			graphics.drawRect(0, 0, stage.width, stage.height);
+			cam = Camera.getCamera();
 			
-			stage.addChild(text);
+			if(cam != null)
+			{	
+				cam.setMode(640, 480, 25);
+				
+				video = new Video(cam.width, cam.height);
+				video.attachCamera(cam);
+				
+				video.rotation = 90;
+				
+				video.x = 640;
+				video.y = 480;
+				
+				addChild(video);
+			}
 			
 			// new to AIR? please read *carefully* the readme.txt files!
 		}
