@@ -14,6 +14,12 @@ package
 		private var line:Sprite;
 		
 		private var lastX:Number, lastY:Number, newX:Number, newY:Number;
+		private var frameCounter:int=0;
+		private var progressError:int=10;
+		private var averageError:int=15;
+		private var badError:int=20;
+		private var frameRate:int = 30;
+		private var shouldvePressed:int;
 		
 		public function ECG() 
 		{
@@ -37,7 +43,29 @@ package
 			line.addEventListener(Event.ENTER_FRAME, drawRandom);
 		}
 		
+		private function incrementCounter():void {
+			if (frameCounter >= frameRate)
+			{
+				frameCounter = 0;
+			}
+			else {
+				frameCounter++;
+			}
+			
+		}
 
+		private function buttonPressed(pressedTime:int):String {
+			if ((pressedTime >= (shouldvePressed - progressError) && (pressedTime <= progressError))) {
+				return "good"
+			}
+			if ((pressedTime >= (shouldvePressed - averageError) && (pressedTime <= averageError))) {
+				return "average"
+			}
+			if ((pressedTime >= (shouldvePressed - badError) && (pressedTime <= badError))) {
+				return "bad"
+			}
+		}
+		
 		private function drawRandom(event:Event):void
 		{  
 			newX = lastX + Math.random() * 2;  

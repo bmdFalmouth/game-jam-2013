@@ -48,7 +48,8 @@ package
 			sm.defineState("QRS", Scanner);
 			sm.defineState("Levels", LevelSelect);
 			sm.defineState("ECG", ECG);
-			sm.display("ECG");
+			sm.defineState("lvl1", lvl1);
+			sm.display("QRS");
 			addChild(sm);			
 		}
 		
