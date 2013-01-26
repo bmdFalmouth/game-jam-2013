@@ -54,7 +54,10 @@ package
 			sm.defineState("Levels", LevelSelect);
 			sm.defineState("ECG", ECG);
 			sm.defineState("Intro", Intro);
-			sm.display("MainMenu");
+			sm.defineState("Operate", OperateGame);
+			sm.defineState("Pulse",  PulseGame);
+					
+			sm.display("QRS");
 			addChild(sm);			
 		}
 		

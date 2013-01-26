@@ -49,12 +49,7 @@ package
 			
 			line1 = new Sprite();
 			addChild(line1);
-			line2 = new Sprite();
-			addChild(line2);
-			line3 = new Sprite();
-			addChild(line3);
-			line4 = new Sprite();
-			addChild(line4);
+
 			
 
 			waveInt = 10;
