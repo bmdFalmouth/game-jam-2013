@@ -29,13 +29,17 @@ package
 		
 		public static var font:TextFormat;
 		
+		public static var theStage:Stage;
+		
 		public static var sm:StateManager;
 		public function Main():void 
 		{
 			font = new TextFormat();
 			font.font = "HQR";
-			font.color = 0xFFFFFF;
+			font.color = 0x000000;
 			font.size = 100;
+			
+			theStage = stage;
 			
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
