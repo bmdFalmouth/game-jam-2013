@@ -5,7 +5,7 @@ set FLEX_SDK=C:\Program Files (x86)\FlashDevelop\Tools\flexsdk
 set AUTO_INSTALL_IOS=yes
 
 :: Path to Android SDK
-set ANDROID_SDK=C:\dev\adt-bundle-windows-x86\sdk
+set ANDROID_SDK=C:\Users\Aeacus\Desktop\adt-bundle-windows-x86\sdk
 
 
 :validation
