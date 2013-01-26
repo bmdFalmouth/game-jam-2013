@@ -20,7 +20,7 @@ package
 		private var badError:int=20;
 		private var frameRate:int = 30;
 		private var shouldvePressed:int;
-		private var frequencyOfCalls =5; //on every (frequencyOfCalls) frames, the metronome will fire.
+		private var frequencyOfCalls:int =5; //on every (frequencyOfCalls) frames, the metronome will fire.
 		
 		public function ECG() 
 		{
@@ -60,7 +60,7 @@ package
 		//when the button is pressed; call this method. It takes in when the button was pressed and compares it to when the button 
 		//should've been pressed and returns a string based on how accurate the user is
 		private function buttonPressed(pressedTime:int):String {
-			if ((pressedTime >= (shouldvePressed - progressError) && (pressedTime <= (progressError+progressError))) {
+			if ((pressedTime >= (shouldvePressed - progressError) && (pressedTime <= (progressError+progressError)))) {
 				return "good"
 			}
 			else if ((pressedTime >= (shouldvePressed - averageError) && (pressedTime <= averageError))) {
@@ -74,7 +74,7 @@ package
 		
 		//takes in a frequency in number of frames. Method checks if the counter is divisible by the frequency given. 
 		//If it is, then it executes a chosen method.
-		private function metronome(frequency:int) {
+		private function metronome(frequency:int):void {
 			if (frameCounter % frequency == 0)
 			{
 				//call method here
