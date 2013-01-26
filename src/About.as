@@ -10,20 +10,15 @@ package
 	 */
 	public class About extends Sprite 
 	{
-		private var text:TextField;
+		private var background:CachedSprite;
 		
 		public function About() 
 		{
-			text = new TextField();
-			text.x = 20;
-			text.y = 20;
-			text.scaleX = 4;
-			text.scaleY = 4;
-			text.text = "About - Back to the menu";
-			addChild(text);
+			background = new CachedSprite(images.ABOUT_PAGE);
+			addChild(background);
 			
 			//Run video, if user touches the screen or the video ends then proceed to the Scanner screen.
-			addEventListener(MouseEvent.CLICK, showMainMenu);
+			background.addEventListener(MouseEvent.CLICK, showMainMenu);
 		}
 		
 		public function showMainMenu(e:MouseEvent):void

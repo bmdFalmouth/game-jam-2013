@@ -10,21 +10,14 @@ package
 	 */
 	public class Help extends Sprite 
 	{
-		
-		private var text:TextField;
+		private var background:CachedSprite;
 		
 		public function Help() 
 		{
-			text = new TextField();
-			text.x = 20;
-			text.y = 20;
-			text.scaleX = 4;
-			text.scaleY = 4;
-			text.text = "Help - Back to the menu";
-			addChild(text);
-			
-			//Run video, if user touches the screen or the video ends then proceed to the Scanner screen.
-			addEventListener(MouseEvent.CLICK, showMainMenu);
+			background = new CachedSprite(images.HELP_PAGE);
+			addChild(background);
+
+			background.addEventListener(MouseEvent.CLICK, showMainMenu);
 		}
 		
 		public function showMainMenu(e:MouseEvent):void
