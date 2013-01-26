@@ -59,6 +59,8 @@ package
 			
 			sm.defineState("Levels", LevelSelect);
 			
+			sm.defineState("Intro", Intro);
+			
 			sm.defineState("ECG", ECG);
 			sm.defineState("Operate", OperateGame);
 			sm.defineState("Pulse",  PulseGame);
@@ -66,6 +68,7 @@ package
 			sm.defineState("Simon", SimonGame);
 					
 			sm.display("Intro");
+			
 			addChild(sm);			
 		}
 		
