@@ -8,6 +8,7 @@ package
 	 */
 	public class PulseGame extends Sprite 
 	{
+		private var bg:CachedSprite;
 		
 		public function PulseGame() 
 		{

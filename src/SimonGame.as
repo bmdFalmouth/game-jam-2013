@@ -8,6 +8,7 @@ package
 	 */
 	public class SimonGame extends Sprite 
 	{
+		private var bg:CachedSprite;
 		
 		public function SimonGame() 
 		{

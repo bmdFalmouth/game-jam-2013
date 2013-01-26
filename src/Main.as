@@ -59,7 +59,7 @@ package
 			sm.defineState("Verbal", VerbalGame);
 			sm.defineState("Simon", SimonGame);
 					
-			sm.display("QRS");
+			sm.display("MainMenu");
 			addChild(sm);			
 		}
 		

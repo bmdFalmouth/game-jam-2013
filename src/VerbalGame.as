@@ -8,6 +8,7 @@ package
 	 */
 	public class VerbalGame extends Sprite 
 	{
+		private var bg:CachedSprite;
 		
 		public function VerbalGame() 
 		{
