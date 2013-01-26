@@ -20,6 +20,7 @@ package
 		private var badError:int=20;
 		private var frameRate:int = 30;
 		private var shouldvePressed:int;
+		private var frequencyOfCalls =5; //on every (frequencyOfCalls) frames, the metronome will fire.
 		
 		public function ECG() 
 		{
@@ -41,8 +42,10 @@ package
 			line.graphics.lineStyle(2,0xb1e5f3); 
 			line.graphics.moveTo(lastX,lastY);  
 			line.addEventListener(Event.ENTER_FRAME, drawRandom);
+			addEventListener(Event.ENTER_FRAME, incrementCounter);
 		}
 		
+		//increments a counter,frame by frame. It also checks to see if the metronome method should execute a function on each frame.
 		private function incrementCounter():void {
 			if (frameCounter >= frameRate)
 			{
@@ -51,9 +54,11 @@ package
 			else {
 				frameCounter++;
 			}
-			
+			metronome(frequencyOfCalls);
 		}
-
+		
+		//when the button is pressed; call this method. It takes in when the button was pressed and compares it to when the button 
+		//should've been pressed and returns a string based on how accurate the user is
 		private function buttonPressed(pressedTime:int):String {
 			if ((pressedTime >= (shouldvePressed - progressError) && (pressedTime <= (progressError+progressError))) {
 				return "good"
@@ -62,9 +67,18 @@ package
 				return "average"
 			}
 			else {
-				return "bad"
+				return "bad"	
 			}
 		
+		}
+		
+		//takes in a frequency in number of frames. Method checks if the counter is divisible by the frequency given. 
+		//If it is, then it executes a chosen method.
+		private function metronome(frequency:int) {
+			if (frameCounter % frequency == 0)
+			{
+				//call method here
+			}
 		}
 		
 		private function drawRandom(event:Event):void
