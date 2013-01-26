@@ -5,6 +5,8 @@ package
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
 	import flash.ui.Multitouch;
 	import flash.ui.MultitouchInputMode;
 	
@@ -14,6 +16,7 @@ package
 	 */
 	public class Main extends Sprite 
 	{
+		private var text:TextField;
 		
 		public function Main():void 
 		{
@@ -25,6 +28,17 @@ package
 			Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 			
 			// entry point
+			text = new TextField();
+			text.text = "TEST";
+			var format5:TextFormat = new TextFormat("Courier", 1000, 0xFFFFFF, true);
+			text.x = 100;
+			text.y = 100;
+			text.defaultTextFormat = format5;
+			
+			graphics.lineStyle(10, 0x000000);
+			graphics.drawRect(0, 0, stage.width, stage.height);
+			
+			stage.addChild(text);
 			
 			// new to AIR? please read *carefully* the readme.txt files!
 		}
