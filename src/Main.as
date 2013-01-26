@@ -60,6 +60,7 @@ package
 			sm.defineState("Levels", LevelSelect);
 			
 			sm.defineState("Intro", Intro);
+			sm.defineState("Leaderboards", Leaderboard);
 			
 			sm.defineState("ECG", ECG);
 			sm.defineState("Operate", OperateGame);
