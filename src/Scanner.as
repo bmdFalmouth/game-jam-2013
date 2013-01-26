@@ -160,7 +160,7 @@ package
 		
 		public function NCListener(e:NetStatusEvent):void
 		{ 
-			if (e.info.code == "NetStream.Play.Stop")
+			if (e.info.code == "NetStream.Buffer.Empty")
 			{
 				stream.seek(0);
 			}
