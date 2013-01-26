@@ -37,7 +37,6 @@ package
 	public class Scanner extends Sprite
 	{		
 		private var back:CachedSprite;
-		private var timePanel:CachedSprite;
 		private var heart:CachedSprite;
 		private var text:TextField;
 		
@@ -73,15 +72,8 @@ package
 			video.width = 720;
 			video.height = 720;
 			back = new CachedSprite(images.BACK);
-			timePanel = new CachedSprite(images.TIME_PANEL);
 			heart = new CachedSprite(images.HEART);
 			addChild(back);
-			addChild(timePanel);
-			//addChild(heart);
-			
-			timePanel.scaleY = 0.6666;
-			timePanel.scaleY = 0.6666;
-			timePanel.y = 190;
 			
 			heart.scaleX = 0.6666;
 			heart.scaleY = 0.6666;
