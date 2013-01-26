@@ -78,6 +78,7 @@ package
 			if (frameCounter % frequency == 0)
 			{
 				//call method here
+				shouldvePressed = frameCounter;
 			}
 		}
 		
