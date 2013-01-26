@@ -30,6 +30,10 @@ package
 		public static var font:TextFormat;
 		
 		public static var theStage:Stage;
+		public static var timerSurvived:int;
+		public static var timerRemaining:int =300;
+		public static var previousTime:Number;
+		public var frameCount:int;
 		
 		public static var sm:StateManager;
 		public function Main():void 
@@ -69,11 +73,23 @@ package
 			sm.defineState("Simon", SimonGame);
 					
 			sm.display("MainMenu");
-
 					
 			sm.display("Intro");
 
 			addChild(sm);			
+			addEventListener(Event.ENTER_FRAME, runCounters )
+		}
+		
+		private function runCounters()
+		{
+			frameCount++;
+			if (frameCount == 30)
+			{
+				timerSurvived++;
+				timerRemaining--;
+				frameCount = 0;
+			}
+			
 		}
 		
 		private function deactivate(e:Event):void 
