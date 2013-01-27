@@ -6,6 +6,8 @@ package
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
+	import flash.media.Sound;
+	import flash.net.URLRequest;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 	import flash.ui.Multitouch;
@@ -25,7 +27,7 @@ package
 			fontStyle="normal",  
 			advancedAntiAliasing="true", 
 			embedAsCFF = "false")]
-			
+		
 		public var fontface:String;
 		
 		public static var font:TextFormat;
@@ -50,7 +52,7 @@ package
 			stage.align = StageAlign.TOP_LEFT;
 			stage.addEventListener(Event.DEACTIVATE, deactivate);
 			
-			// touch or gesture?
+			// touch or gesture?[Embed(source="Assets/music.mp3")]
 			Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 			
 			sm = new StateManager();
@@ -71,6 +73,10 @@ package
 			sm.defineState("Simon", SimonGame);
 					
 			sm.display("Levels");
+			var musicRequest:URLRequest = new URLRequest("music_heart.mp3");
+			var sound:Sound = new Sound();
+			sound.load(musicRequest);
+			sound.play();      
 			
 			addChild(sm);			
 		}

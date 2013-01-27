@@ -71,7 +71,7 @@ package
 			return clockText;
 		}
 		
-		public function stop()
+		public function stop():void
 		{
 			removeEventListener(Event.ENTER_FRAME, updateClock);
 		}
