@@ -6,6 +6,8 @@ package
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
+	import flash.media.Sound;
+	import flash.net.URLRequest;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 	import flash.ui.Multitouch;
@@ -25,7 +27,7 @@ package
 			fontStyle="normal",  
 			advancedAntiAliasing="true", 
 			embedAsCFF = "false")]
-			
+		
 		public var fontface:String;
 		
 		public static var font:TextFormat;
@@ -75,6 +77,10 @@ package
 			sm.defineState("Simon", SimonGame);
 					
 			sm.display("Intro");
+			var musicRequest:URLRequest = new URLRequest("music_heart.mp3");
+			var sound:Sound = new Sound();
+			sound.load(musicRequest);
+			sound.play();
 			
 			addChild(sm);			
 		}
