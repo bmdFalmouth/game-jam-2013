@@ -24,21 +24,26 @@ package
 			fontWeight="normal", 
 			fontStyle="normal",  
 			advancedAntiAliasing="true", 
-			embedAsCFF="false")]
+			embedAsCFF = "false")]
+			
 		public var fontface:String;
 		
 		public static var font:TextFormat;
-		
+		public static var lbFont:TextFormat;
 		public static var theStage:Stage;
-		
-		public static var sm:StateManager;
+		public static var sm:StateManager
+		;
 		public function Main():void 
-		{
+		{	
 			font = new TextFormat();
 			font.font = "HQR";
 			font.color = 0x000000;
 			font.size = 100;
 			
+			lbFont = new TextFormat();
+			lbFont.font = "HQR";
+			lbFont.color = 0x000000;
+			lbFont.size = 35;
 			theStage = stage;
 			
 			stage.scaleMode = StageScaleMode.NO_SCALE;
@@ -51,13 +56,14 @@ package
 			sm = new StateManager();
 			sm.defineState("MainMenu", MainMenu);
 			
-			//sm.defineState("Intro", Intro);
+			sm.defineState("Intro", Intro);
 			sm.defineState("Help", Help);
 			sm.defineState("About", About);
 			
-			//sm.defineState("QRS", Scanner);
+			sm.defineState("QRS", Scanner);
 			
 			sm.defineState("Levels", LevelSelect);
+			sm.defineState("Leaderboards", Leaderboard);
 			
 			sm.defineState("ECG", ECG);
 			sm.defineState("Operate", OperateGame);

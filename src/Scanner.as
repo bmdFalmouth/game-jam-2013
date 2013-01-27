@@ -37,7 +37,9 @@ package
 	public class Scanner extends Sprite
 	{		
 		private var back:CachedSprite;
-		private var text:TextField;
+		private var cameraButton:CachedSprite;
+		
+		private var clock:Clock;
 		
 		private var video:Video;
 		private var videoURL:String = "heart_normal.flv";
@@ -48,9 +50,6 @@ package
 		private var detectionRate:int = 10;
 		
 		private var qrDecodedDataOld:String; 
-		
-		private var markerArea;
-		private var markerAreaRect:Rectangle;
 		
 		private var markerGuide:Sprite;
 		private var refreshTimer:Timer;
@@ -66,30 +65,43 @@ package
 			video = new Video();
 			video.x = 1;
 			video.y = 500;
-			//video.scaleX = 2;
-			//video.scaleY = 2;
 			video.width = 720;
 			video.height = 720;
 			back = new CachedSprite(images.BACK);
 			addChild(back);
 			
-			text = new TextField();
-			text.defaultTextFormat = Main.font;
-			text.embedFonts = true;
-			text.width = 720;
-			text.height = 200;
-			text.y = 260;
-			text.x = 200;
-			text.text = "00:00:00";
-			addChild(text);
-			
+
 			connection = new NetConnection();
 			connection.addEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
             connection.addEventListener(SecurityErrorEvent.SECURITY_ERROR, securityErrorHandler);
             connection.connect(null);
 			
+			createClock();
+			createCameraButton();
+		}
+		
+		private function createCameraButton():void
+		{
+			cameraButton = new CachedSprite(images.CAMERA_BUTTON);
+			cameraButton.x = 610;
+			cameraButton.y = 18;
+			cameraButton.addEventListener(MouseEvent.CLICK, showQRS);
+			addChild(cameraButton);
+		}
+		
+		private function createClock():void
+		{
+			clock = new Clock();
+			clock.y = 218;
+			clock.x = 255;
+			addChild(clock);
+		}
+		
+		private function showQRS(e:Event):void
+		{
+			cameraButton.removeEventListener(MouseEvent.CLICK, showQRS);
 			
-			addEventListener(MouseEvent.CLICK, showQRS);
+			videoDisplay.visible = true;
 			
 			if(Camera.isSupported)
 			{	
@@ -109,17 +121,11 @@ package
 				qrReader = new QRCodeReader;
 						
 				addChild(videoDisplay);
-				videoDisplay.visible = false;
 				
 				refreshTimer = new Timer(1000); 	
 				refreshTimer.addEventListener(TimerEvent.TIMER, refresh);
 				refreshTimer.start();
 			}
-		}
-		
-		private function showQRS(e:Event):void
-		{
-			videoDisplay.visible = true;
 		}
 		
 		private function netStatusHandler(event:NetStatusEvent):void
@@ -151,11 +157,6 @@ package
 			{
 				stream.seek(0);
 			}
-		}
-		
-		private function videoPlayAgain( event:VideoEvent ):void
-		{
-			event.target.play();
 		}
 
         private function securityErrorHandler(event:SecurityErrorEvent):void
