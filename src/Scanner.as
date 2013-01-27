@@ -37,7 +37,6 @@ package
 	public class Scanner extends Sprite
 	{		
 		private var back:CachedSprite;
-		private var heart:CachedSprite;
 		private var text:TextField;
 		
 		private var video:Video;
@@ -72,13 +71,7 @@ package
 			video.width = 720;
 			video.height = 720;
 			back = new CachedSprite(images.BACK);
-			heart = new CachedSprite(images.HEART);
 			addChild(back);
-			
-			heart.scaleX = 0.6666;
-			heart.scaleY = 0.6666;
-			heart.y = 350;
-			heart.x = 25;
 			
 			text = new TextField();
 			text.defaultTextFormat = Main.font;
