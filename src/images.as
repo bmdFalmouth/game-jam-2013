@@ -29,7 +29,9 @@ package
 		[Embed(source = 'Assets/Images/simon_green.png')] public static const SIMON_GREEN:Class;
 		[Embed(source = 'Assets/Images/simon_red.png')] public static const SIMON_RED:Class;
 		[Embed(source = 'Assets/Images/simon_yellow.png')] public static const SIMON_YELLOW:Class;
-		
+		[Embed(source = 'Assets/Images/heart_back.png')] public static const SIMON_HEART_BACK:Class;
+		[Embed(source = 'Assets/Images/heart_front.png')] public static const SIMON_HEART_FRONT:Class;
+				
 		[Embed(source = 'Assets/Images/Level_Select_pulse_game_screen.png')] public static const ECG_LEVEL_SELECT:Class;
 		[Embed(source = 'Assets/Images/Level Select_simon_game_screen.png')] public static const SIMON_LEVEL_SELECT:Class;
 		[Embed(source = 'Assets/Images/Level Select_Sliding_game_screen.png')] public static const SLIDING_LEVEL_SELECT:Class;
@@ -37,6 +39,8 @@ package
 		[Embed(source = 'Assets/Images/Level Select_Puzzle_game_screen.png')] public static const PUZZLE_LEVEL_SELECT:Class;
 		[Embed(source = 'Assets/Images/Level_Select_verbal_game_screen.png')] public static const VERBAL_LEVEL_SELECT:Class;
 		[Embed(source = 'Assets/Images/Padlock.png')] public static const PADLOCK:Class;
+		
+		[Embed(source = 'Assets/Images/wing_button.png')] public static const WING_BUTTON:Class;
 	}
 
 }
