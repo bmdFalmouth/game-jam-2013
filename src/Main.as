@@ -24,11 +24,12 @@ package
 			fontWeight="normal", 
 			fontStyle="normal",  
 			advancedAntiAliasing="true", 
-			embedAsCFF="false")]
+			embedAsCFF = "false")]
+			
 		public var fontface:String;
 		
 		public static var font:TextFormat;
-		
+		public static var lbFont:TextFormat;
 		public static var theStage:Stage;
 		public static var timerSurvived:int;
 		public static var timerRemaining:int =300;
@@ -43,6 +44,10 @@ package
 			font.color = 0x000000;
 			font.size = 100;
 			
+			lbFont = new TextFormat();
+			lbFont.font = "HQR";
+			lbFont.color = 0x000000;
+			lbFont.size = 35;
 			theStage = stage;
 			
 			stage.scaleMode = StageScaleMode.NO_SCALE;
@@ -62,8 +67,6 @@ package
 			sm.defineState("QRS", Scanner);
 			
 			sm.defineState("Levels", LevelSelect);
-			
-			sm.defineState("Intro", Intro);
 			sm.defineState("Leaderboards", Leaderboard);
 			
 			sm.defineState("ECG", ECG);
@@ -72,15 +75,13 @@ package
 			sm.defineState("Verbal", VerbalGame);
 			sm.defineState("Simon", SimonGame);
 					
-			sm.display("MainMenu");
-					
-			sm.display("Intro");
+			sm.display("Leaderboards");
 
 			addChild(sm);			
 			addEventListener(Event.ENTER_FRAME, runCounters )
 		}
 		
-		private function runCounters()
+		private function runCounters():void
 		{
 			frameCount++;
 			if (frameCount == 30)

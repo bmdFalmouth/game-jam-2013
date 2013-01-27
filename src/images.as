@@ -21,6 +21,7 @@ package
 		[Embed(source = 'Assets/Images/play_Menu.png')] public static const PLAY_MENU_BUTTON:Class;
 		[Embed(source = 'Assets/Images/About_Menu.png')] public static const ABOUT_MENU_BUTTON:Class;
 		[Embed(source = 'Assets/Images/help_Menu.png')] public static const HELP_MENU_BUTTON:Class;
+		[Embed(source = 'Assets/Images/leaderboard_screen.png')] public static const LEADERBOARD_SCREEN:Class;
 		
 		[Embed(source = 'Assets/Images/About_Page.png')] public static const ABOUT_PAGE:Class;
 		[Embed(source = 'Assets/Images/Help.png')] public static const HELP_PAGE:Class;
