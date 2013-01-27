@@ -15,13 +15,6 @@ package
 			timeSurvived = time;
 		}
 		
-		public function createString():String
-		{
-		    var stringTime:String = timeSurvived.toString();
-			var finishedString:String = name+" survived " + timeSurvived +" seconds";
-			
-		return(finishedString);
-		}	
 	}
 
 }
