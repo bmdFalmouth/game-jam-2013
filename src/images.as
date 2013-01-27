@@ -31,6 +31,12 @@ package
 		[Embed(source = 'Assets/Images/simon_yellow.png')] public static const SIMON_YELLOW:Class;
 		
 		[Embed(source = 'Assets/Images/Level_Select_pulse_game_screen.png')] public static const ECG_LEVEL_SELECT:Class;
+		[Embed(source = 'Assets/Images/Level Select_simon_game_screen.png')] public static const SIMON_LEVEL_SELECT:Class;
+		[Embed(source = 'Assets/Images/Level Select_Sliding_game_screen.png')] public static const SLIDING_LEVEL_SELECT:Class;
+		[Embed(source = 'Assets/Images/Level_select_operate_game_logo_.png')] public static const OPERATE_LEVEL_SELECT:Class;
+		[Embed(source = 'Assets/Images/Level Select_Puzzle_game_screen.png')] public static const PUZZLE_LEVEL_SELECT:Class;
+		[Embed(source = 'Assets/Images/Level_Select_verbal_game_screen.png')] public static const VERBAL_LEVEL_SELECT:Class;
+		[Embed(source = 'Assets/Images/Padlock.png')] public static const PADLOCK:Class;
 	}
 
 }

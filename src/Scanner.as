@@ -64,7 +64,7 @@ package
 		{			
 			video = new Video();
 			video.x = 1;
-			video.y = 500;
+			video.y = 470;
 			video.width = 720;
 			video.height = 720;
 			back = new CachedSprite(images.BACK);
@@ -213,6 +213,8 @@ package
 				var parsedResult:ParsedResult=ResultParser.parseResult(res);
 				removeChild(videoDisplay);
 				cameraStarted = false;
+				refreshTimer.removeEventListener(TimerEvent.TIMER, refresh);
+				clock.stop();
 				Main.sm.display("Levels");
 			}
 		}

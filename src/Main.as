@@ -70,7 +70,7 @@ package
 			sm.defineState("Verbal", VerbalGame);
 			sm.defineState("Simon", SimonGame);
 					
-			sm.display("Intro");
+			sm.display("Levels");
 			
 			addChild(sm);			
 		}
