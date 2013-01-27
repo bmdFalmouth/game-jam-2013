@@ -86,6 +86,15 @@ package
 			}
 		}
 		
+		private function showOperateGame(e:MouseEvent):void 
+		{
+			if (!hasDragged)
+			{
+				clock.stop();
+				Main.sm.display("Operate");
+			}
+		}
+		
 		private function createECGLevelSelect():void
 		{
 			ecgLevelSelect = new CachedSprite(images.ECG_LEVEL_SELECT);
@@ -120,12 +129,13 @@ package
 			operationLevelSelect.x = simonLevelSelect.x + 720;
 			operationLevelSelect.y = 600;
 			
-			padlock1.x = (operationLevelSelect.width / 2) - (padlock1.width / 2 );
-			padlock1.y =  (operationLevelSelect.height / 2) - (padlock1.height / 2 );
+			//padlock1.x = (operationLevelSelect.width / 2) - (padlock1.width / 2 );
+			//padlock1.y =  (operationLevelSelect.height / 2) - (padlock1.height / 2 );
 			
 			addChild(operationLevelSelect);
-			operationLevelSelect.addChild(padlock1);
+			//operationLevelSelect.addChild(padlock1);
 			
+			operationLevelSelect.addEventListener(MouseEvent.CLICK, showOperateGame);
 			operationLevelSelect.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
 			operationLevelSelect.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
 			operationLevelSelect.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);

@@ -226,7 +226,7 @@ package
 		private function showNextScreen():void
 		{
 			clock.stop();
-			Main.sm.display("Levels");
+			Main.sm.display("QRS");
 		}
 		
 		private function indicator1clicked(e:MouseEvent):void

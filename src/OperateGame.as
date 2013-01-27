@@ -156,7 +156,7 @@ package
 		{
 			guts.stopDrag();
 			guts.removeEventListener(MouseEvent.MOUSE_UP, gutsStopDrag);
-			if ((181 > guts.x ? false : ( 185 < guts.x ? false : true )) && (828 > guts.y ? false : ( 832 < guts.y ? false : true )))
+			if ((179 > guts.x ? false : ( 187 < guts.x ? false : true )) && (826 > guts.y ? false : ( 834 < guts.y ? false : true )))
 			{
 				guts.x = 183;
 				guts.y = 830;
@@ -182,7 +182,7 @@ package
 		{
 			brain.stopDrag();
 			brain.removeEventListener(MouseEvent.MOUSE_UP, gutsStopDrag);
-			if ((124 > brain.x ? false : ( 128 < brain.x ? false : true )) && (483 > brain.y ? false : ( 487 < brain.y ? false : true )))
+			if ((122 > brain.x ? false : ( 130 < brain.x ? false : true )) && (481 > brain.y ? false : ( 489 < brain.y ? false : true )))
 			{
 				brain.x = 126;
 				brain.y = 485;
@@ -208,7 +208,7 @@ package
 		{
 			kidney.stopDrag();
 			kidney.removeEventListener(MouseEvent.MOUSE_UP, kidneyStopDrag);
-			if ((206 > kidney.x ? false : ( 210 < kidney.x ? false : true )) && (753 > kidney.y ? false : ( 757 < kidney.y ? false : true )))
+			if ((204 > kidney.x ? false : ( 212 < kidney.x ? false : true )) && (751 > kidney.y ? false : ( 759 < kidney.y ? false : true )))
 			{
 				kidney.x = 208;
 				kidney.y = 745;
@@ -234,7 +234,7 @@ package
 		{
 			heart.stopDrag();
 			heart.removeEventListener(MouseEvent.MOUSE_UP, heartStopDrag);
-			if ((162 > heart.x ? false : ( 166 < heart.x ? false : true )) && (633 > heart.y ? false : ( 637 < heart.y ? false : true )))
+			if ((160 > heart.x ? false : ( 168 < heart.x ? false : true )) && (631 > heart.y ? false : ( 639 < heart.y ? false : true )))
 			{
 				heart.x = 164;
 				heart.y = 635;
@@ -260,7 +260,7 @@ package
 		{
 			bone.stopDrag();
 			bone.removeEventListener(MouseEvent.MOUSE_UP, boneStopDrag);
-			if ((117 > bone.x ? false : ( 121 < bone.x ? false : true )) && (1068 > bone.y ? false : ( 1072 < bone.y ? false : true )))
+			if ((115 > bone.x ? false : ( 123 < bone.x ? false : true )) && (1066 > bone.y ? false : ( 1074 < bone.y ? false : true )))
 			{				
 				bone.x = 119;
 				bone.y = 1070;
@@ -325,6 +325,7 @@ package
 				bottle3.visible = true;
 				bottle4.visible = true;
 				bottle5.visible = true;
+				clock.stop();
 				Main.sm.display("QRS");
 			}
 		}
