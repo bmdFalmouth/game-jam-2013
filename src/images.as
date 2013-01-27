@@ -23,7 +23,6 @@ package
 		
 		[Embed(source = 'Assets/Images/About_Page.png')] public static const ABOUT_PAGE:Class;
 		[Embed(source = 'Assets/Images/Help.png')] public static const HELP_PAGE:Class;
-
 		
 		[Embed(source = 'Assets/Images/simon_blue.png')] public static const SIMON_BLUE:Class;
 		[Embed(source = 'Assets/Images/simon_green.png')] public static const SIMON_GREEN:Class;
@@ -41,6 +40,11 @@ package
 		[Embed(source = 'Assets/Images/Padlock.png')] public static const PADLOCK:Class;
 		
 		[Embed(source = 'Assets/Images/wing_button.png')] public static const WING_BUTTON:Class;
+		[Embed(source = 'Assets/Images/operation_guts.png')] public static const OPERATION_GUTS:Class;
+		[Embed(source = 'Assets/Images/operation_brain.png')] public static const OPERATION_BRAIN:Class;
+		[Embed(source = 'Assets/Images/operation_heart.png')] public static const OPERATION_HEART:Class;
+		[Embed(source = 'Assets/Images/operation_kidney.png')] public static const OPERATION_KIDNEY:Class;
+		[Embed(source = 'Assets/Images/operation_bone.png')] public static const OPERATION_BONE:Class;
 	}
 
 }
