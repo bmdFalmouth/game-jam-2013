@@ -80,8 +80,8 @@ package
 			var musicRequest:URLRequest = new URLRequest("music_heart.mp3");
 			var sound:Sound = new Sound();
 			sound.load(musicRequest);
-			sound.play();
-			
+			sound.play(0, 100, null);
+
 			addChild(sm);			
 		}
 		
