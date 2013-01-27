@@ -37,6 +37,8 @@ package
 		[Embed(source = 'Assets/Images/Level Select_Puzzle_game_screen.png')] public static const PUZZLE_LEVEL_SELECT:Class;
 		[Embed(source = 'Assets/Images/Level_Select_verbal_game_screen.png')] public static const VERBAL_LEVEL_SELECT:Class;
 		[Embed(source = 'Assets/Images/Padlock.png')] public static const PADLOCK:Class;
+		
+		[Embed(source = 'Assets/Images/Hand.png')] public static const HAND:Class;
 	}
 
 }

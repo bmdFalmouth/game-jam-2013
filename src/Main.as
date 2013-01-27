@@ -31,8 +31,10 @@ package
 		public static var font:TextFormat;
 		public static var lbFont:TextFormat;
 		public static var theStage:Stage;
-		public static var sm:StateManager
-		;
+		public static var sm:StateManager;
+		
+		public static var qrCodeArray:Array;
+		
 		public function Main():void 
 		{	
 			font = new TextFormat();
@@ -49,6 +51,8 @@ package
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
 			stage.addEventListener(Event.DEACTIVATE, deactivate);
+			
+			qrCodeArray = [];
 			
 			// touch or gesture?
 			Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
@@ -79,6 +83,30 @@ package
 		{
 			// auto-close
 			NativeApplication.nativeApplication.exit();
+		}
+		
+		public static function validateQrCode(code:String):Boolean
+		{
+			var found:Boolean = false;
+			for (var i:int = 0; i < qrCodeArray.length; i++ )
+			{
+				var temp:String = qrCodeArray[i];
+				if (temp == code)
+				{
+					found = true;
+					break;
+				}
+			}
+			
+			if (found)
+			{
+				return false;
+			}
+			else
+			{
+				qrCodeArray.push(code);
+				return true;
+			}
 		}
 		
 	}

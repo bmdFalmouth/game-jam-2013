@@ -15,7 +15,8 @@ package
 		private var clockCounterSeconds:int;
 		
 		public static var timerSurvived:int;
-		public static var timerRemaining:int = 180;
+		public static var timerRemaining:int = 300;
+		public static var defaultTimerRemaining:int = 300;
 		public var frameCount:int;
 		
 		public function Clock() 
@@ -52,6 +53,12 @@ package
 				clockCounterSeconds = timerRemaining % 60;
 			
 				clock.text =  getClockText(clockCounterMinutes) + ":" + getClockText(clockCounterSeconds);
+				
+				if (clockCounterMinutes <= 0 && clockCounterSeconds <= 0)
+				{
+					this.stop();
+					Main.sm.display("Leaderboards");
+				}
 			}
 		}
 		
@@ -71,7 +78,7 @@ package
 			return clockText;
 		}
 		
-		public function stop()
+		public function stop():void
 		{
 			removeEventListener(Event.ENTER_FRAME, updateClock);
 		}

@@ -1,6 +1,7 @@
 package  
 {
 	import flash.display.Sprite;
+	import flash.events.MouseEvent;
 	import flash.text.TextField;
 	
 	/**
@@ -37,6 +38,8 @@ package
 		private var entry5text:String;
 		
 		private static var leaderboardArray:Array = [];
+		
+		private var handButton:CachedSprite;
 		
 		
 		public function Leaderboard() 
@@ -91,11 +94,16 @@ package
 			entry4text = row4[0] + " survived " + row4[1] + " seconds";
 			entry5text = row5[0] + " survived " + row5[1] + " seconds";
 			
+			handButton = new CachedSprite(images.HAND);
+			handButton.x = 23;
+			handButton.y = 30;
+			
 			
 			textField1.text = entry1text;
 			textField1.width = textField1.textWidth;
 			
 			addChild(back);	
+			addChild(handButton);
 			addChild(textField1);
 			addChild(textField2);
 			addChild(textField3);
@@ -103,7 +111,14 @@ package
 			addChild(textField5);
 			var passedEntry:LeaderboardEntry = new LeaderboardEntry("test", 9001);
 			iDied(passedEntry);
+			
+			handButton.addEventListener(MouseEvent.CLICK, onHandButtonClicked);
 		}	
+		
+		private function onHandButtonClicked(e:MouseEvent):void
+		{
+			Main.sm.display("MainMenu");
+		}
 		
 		//check score against current leaders
 		public function iDied(entry:LeaderboardEntry):void {

@@ -40,6 +40,7 @@ package
 		
 		public function showIntro(e:MouseEvent):void
 		{
+			Clock.timerRemaining = Clock.defaultTimerRemaining;
 			Main.sm.display("QRS");
 		}
 		
