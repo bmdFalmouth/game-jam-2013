@@ -30,6 +30,7 @@ package
 	import flash.utils.Timer;
 	import com.google.zxing.DecodeHintType;
 	import com.google.zxing.BarcodeFormat;
+
 	/**
 	 * ...
 	 * @author James Simpson
@@ -59,6 +60,8 @@ package
         private var videoDisplay:Video=new Video(360, 360);
         private var bmd:BitmapData;
         private var cameraStarted:Boolean = false;
+		
+		private var codeAlreadyScanned:TextField;
 		
 		public function Scanner() 
 		{			
@@ -210,13 +213,34 @@ package
 			}
 			else
 			{
-				var parsedResult:ParsedResult=ResultParser.parseResult(res);
-				removeChild(videoDisplay);
-				cameraStarted = false;
-				refreshTimer.removeEventListener(TimerEvent.TIMER, refresh);
-				clock.stop();
-				Main.sm.display("Levels");
+				if (Main.validateQrCode(res.getText()))
+				{
+					var parsedResult:ParsedResult=ResultParser.parseResult(res);
+					removeChild(videoDisplay);
+					cameraStarted = false;
+					refreshTimer.removeEventListener(TimerEvent.TIMER, refresh);
+					
+					clock.stop();
+					Main.sm.display("Levels");
+				}
+				else
+				{
+					createCodeAlreadyScanned();
+				}
 			}
+		}
+		
+		private function createCodeAlreadyScanned():void 
+		{
+			codeAlreadyScanned = new TextField();
+			codeAlreadyScanned.defaultTextFormat = Main.lbFont;
+			codeAlreadyScanned.embedFonts = true;
+			codeAlreadyScanned.text = "QR Code already scanned.";
+			codeAlreadyScanned.width = 720;
+			codeAlreadyScanned.height = 200;
+			codeAlreadyScanned.x = (720/2) - (codeAlreadyScanned.textWidth / 2);
+			codeAlreadyScanned.y = 1200;
+			addChild(codeAlreadyScanned);
 		}
 		
 		public function getAllHints():HashTable

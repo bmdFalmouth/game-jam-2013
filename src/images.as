@@ -45,6 +45,8 @@ package
 		[Embed(source = 'Assets/Images/operation_heart.png')] public static const OPERATION_HEART:Class;
 		[Embed(source = 'Assets/Images/operation_kidney.png')] public static const OPERATION_KIDNEY:Class;
 		[Embed(source = 'Assets/Images/operation_bone.png')] public static const OPERATION_BONE:Class;
+		
+		[Embed(source = 'Assets/Images/Hand.png')] public static const HAND:Class;
 	}
 
 }

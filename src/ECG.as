@@ -4,6 +4,7 @@ package
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
+	
 	/**
 	 * ...
 	 * @author James Simpson
@@ -35,6 +36,8 @@ package
 		private var bottle3:CachedSprite;
 		private var bottle4:CachedSprite;
 		private var bottle5:CachedSprite;
+		
+		private var handButton:CachedSprite;
 		
 		private var bottles:Array;
 		
@@ -119,6 +122,18 @@ package
 			bottle3.visible = false;
 			bottle4.visible = false;
 			bottle5.visible = false;
+			
+			handButton = new CachedSprite(images.HAND);
+			handButton.x = 23;
+			handButton.y = 30;
+			handButton.addEventListener(MouseEvent.CLICK, onHandButtonClicked);
+			addChild(handButton);
+		}
+		
+		private function onHandButtonClicked(e:MouseEvent):void
+		{
+			clock.stop();
+			Main.sm.display("QRS");
 		}
 		
 		private function createClock():void
@@ -188,6 +203,7 @@ package
 				winCounter++;
 				if (winCounter >= 5)
 				{
+					Clock.timerRemaining += 10;
 					showNextScreen();
 				}
 			}

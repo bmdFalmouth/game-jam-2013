@@ -3,6 +3,8 @@ package
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
+	import flash.media.Sound;
+	import flash.net.URLRequest;
 	
 	/**
 	 * ...
@@ -40,17 +42,26 @@ package
 		
 		public function showIntro(e:MouseEvent):void
 		{
+			Clock.timerRemaining = Clock.defaultTimerRemaining;
 			Main.sm.display("QRS");
 		}
 		
 		public function showAbout(e:MouseEvent):void
 		{
 			Main.sm.display("About");
+			var clickRequest:URLRequest = new URLRequest("click_1.mp3");
+			var sound:Sound = new Sound();
+			sound.load(clickRequest);
+			sound.play();  
 		}
 		
 		public function showHelp(e:MouseEvent):void
 		{
 			Main.sm.display("Help");
+			var clickRequest:URLRequest = new URLRequest("click_1.mp3");
+			var sound:Sound = new Sound();
+			sound.load(clickRequest);
+			sound.play(); 
 		}
 	}
 }

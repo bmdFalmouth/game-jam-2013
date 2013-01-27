@@ -6,6 +6,8 @@ package
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
+	import flash.media.Sound;
+	import flash.net.URLRequest;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
 	import flash.ui.Multitouch;
@@ -25,14 +27,16 @@ package
 			fontStyle="normal",  
 			advancedAntiAliasing="true", 
 			embedAsCFF = "false")]
-			
+		
 		public var fontface:String;
 		
 		public static var font:TextFormat;
 		public static var lbFont:TextFormat;
 		public static var theStage:Stage;
-		public static var sm:StateManager
-		;
+		public static var sm:StateManager;
+		
+		public static var qrCodeArray:Array;
+		
 		public function Main():void 
 		{	
 			font = new TextFormat();
@@ -49,6 +53,8 @@ package
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
 			stage.addEventListener(Event.DEACTIVATE, deactivate);
+			
+			qrCodeArray = [];
 			
 			// touch or gesture?
 			Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
@@ -71,7 +77,11 @@ package
 			sm.defineState("Simon", SimonGame);
 					
 			sm.display("Intro");
-			
+			var musicRequest:URLRequest = new URLRequest("music_heart.mp3");
+			var sound:Sound = new Sound();
+			sound.load(musicRequest);
+			sound.play(0, 100, null);
+
 			addChild(sm);			
 		}
 		
@@ -79,6 +89,30 @@ package
 		{
 			// auto-close
 			NativeApplication.nativeApplication.exit();
+		}
+		
+		public static function validateQrCode(code:String):Boolean
+		{
+			var found:Boolean = false;
+			for (var i:int = 0; i < qrCodeArray.length; i++ )
+			{
+				var temp:String = qrCodeArray[i];
+				if (temp == code)
+				{
+					found = true;
+					break;
+				}
+			}
+			
+			if (found)
+			{
+				return false;
+			}
+			else
+			{
+				qrCodeArray.push(code);
+				return true;
+			}
 		}
 		
 	}

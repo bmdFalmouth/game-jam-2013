@@ -53,6 +53,8 @@ package
 		private var heartScale:Number;
 		private var heartScaleDir:int;
 		
+		private var clock:Clock;
+		
 		public function SimonGame() 
 		{
 			init();
@@ -64,6 +66,8 @@ package
 			heartScaleDir = 1;
 			bg = new CachedSprite(images.SIMON_GAME_BACKGROUND);
 			addChild(bg);
+			
+			createClock();
 			
 			heartBack = new CachedSprite(images.SIMON_HEART_BACK,true);
 			addChild(heartBack);
@@ -170,6 +174,14 @@ package
 			bottle5.visible = false;
 			
 			this.addEventListener(Event.ENTER_FRAME, pulse);
+		}
+		
+		private function createClock():void
+		{
+			clock = new Clock();
+			clock.y = 218;
+			clock.x = 255;
+			addChild(clock);
 		}
 		
 		private function pulse(e:Event):void
@@ -322,6 +334,8 @@ package
 					showBottle();
 					if (winCounter == 5)
 					{
+						clock.stop();
+						Clock.timerRemaining += 10;
 						Main.sm.display("QRS");
 					}
 					nextTurn();
