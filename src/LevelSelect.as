@@ -72,6 +72,7 @@ package
 		{
 			if (!hasDragged)
 			{
+				clock.stop();
 				Main.sm.display("ECG");
 			}
 		}
@@ -80,6 +81,7 @@ package
 		{
 			if (!hasDragged)
 			{
+				clock.stop();
 				Main.sm.display("Simon");
 			}
 		}

@@ -15,7 +15,7 @@ package
 		private var clockCounterSeconds:int;
 		
 		public static var timerSurvived:int;
-		public static var timerRemaining:int = 300;
+		public static var timerRemaining:int = 180;
 		public var frameCount:int;
 		
 		public function Clock() 
