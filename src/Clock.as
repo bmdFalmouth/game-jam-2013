@@ -70,5 +70,10 @@ package
 			
 			return clockText;
 		}
+		
+		public function stop()
+		{
+			removeEventListener(Event.ENTER_FRAME, updateClock);
+		}
 	}
 }

@@ -29,6 +29,8 @@ package
 		[Embed(source = 'Assets/Images/simon_green.png')] public static const SIMON_GREEN:Class;
 		[Embed(source = 'Assets/Images/simon_red.png')] public static const SIMON_RED:Class;
 		[Embed(source = 'Assets/Images/simon_yellow.png')] public static const SIMON_YELLOW:Class;
+		
+		[Embed(source = 'Assets/Images/Level_Select_pulse_game_screen.png')] public static const ECG_LEVEL_SELECT:Class;
 	}
 
 }
