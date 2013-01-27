@@ -26,13 +26,16 @@ package
 			if (numChildren > 0)
 			{
 				previousState = currentState;
-				removeChild(previousState.sprite); //TODO: remove previous state from the stage without killing game
+				removeChild(previousState.sprite);
+				previousState.destroy();
 			}
+			
 			for (var i:int = 0; i < states.length; i++)
 			{
 				if (states[i].name == tempName)
 				{
 					currentState = states[i];
+					currentState.create();
 					addChild(currentState.sprite);
 					break;
 				}
@@ -40,17 +43,28 @@ package
 		}
 		
 	}
-
 }
 
 class State
 {
 	public var name:String;
 	public var sprite:*;
+	private var tempClass:Class;
 	
 	public function State(tempName:String, tempClass:Class)
 	{
 		name = tempName;
+		this.tempClass = tempClass;
+		//sprite = new tempClass();
+	}
+	
+	public function create():void 
+	{
 		sprite = new tempClass();
+	}
+	
+	public function destroy():void
+	{
+		sprite = null;
 	}
 }

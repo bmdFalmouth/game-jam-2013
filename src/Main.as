@@ -75,7 +75,7 @@ package
 			sm.defineState("Verbal", VerbalGame);
 			sm.defineState("Simon", SimonGame);
 					
-			sm.display("Leaderboards");
+			sm.display("Intro");
 
 			addChild(sm);			
 			addEventListener(Event.ENTER_FRAME, runCounters )
