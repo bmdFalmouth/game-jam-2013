@@ -47,6 +47,12 @@ package
 		private var bottle5:CachedSprite;
 		private var bottles:Array;
 		
+		private var heartBack:CachedSprite;
+		private var heartFront:CachedSprite;
+		
+		private var heartScale:Number;
+		private var heartScaleDir:int;
+		
 		public function SimonGame() 
 		{
 			init();
@@ -54,32 +60,47 @@ package
 		
 		private function init():void
 		{
+			heartScale = 1;
+			heartScaleDir = 1;
 			bg = new CachedSprite(images.SIMON_GAME_BACKGROUND);
 			addChild(bg);
 			
+			heartBack = new CachedSprite(images.SIMON_HEART_BACK,true);
+			addChild(heartBack);
+			heartBack.x = 350;
+			heartBack.y = 780;
+			
+			heartFront = new CachedSprite(images.SIMON_HEART_FRONT,true);
+			addChild(heartFront);
+			heartFront.x = 350;
+			heartFront.y = 790;
+			heartFront.mouseEnabled = false;
+			
 			winCounter = 0;
 			
-			red = new CachedSprite(images.SIMON_RED);
-			blue = new CachedSprite(images.SIMON_BLUE);
-			yellow = new CachedSprite(images.SIMON_YELLOW);
-			green = new CachedSprite(images.SIMON_GREEN);
+			red = new CachedSprite(images.SIMON_RED,true);
+			blue = new CachedSprite(images.SIMON_BLUE,true);
+			yellow = new CachedSprite(images.SIMON_YELLOW,true);
+			green = new CachedSprite(images.SIMON_GREEN,true);
 			
 			addChild(red);
 			addChild(blue);
 			addChild(yellow);
 			addChild(green);
 			
-			red.x = 360;
-			red.y = 695;
+			addChild(heartFront);
+			
+			red.x = 455;
+			red.y = 870;
 			red.alpha = 0.75;
-			yellow.x = 380;
-			yellow.y = 555;
+			yellow.x = 450;
+			yellow.y = 675;
 			yellow.alpha = 0.75;
-			blue.x = 148;
-			blue.y = 780;
+			blue.x = 260;
+			blue.y = 900;
 			blue.alpha = 0.75;
-			green.x = 100;
-			green.y = 555;
+			green.x = 215;
+			green.y = 720;
 			green.alpha = 0.75;
 			
 			var greenLight:Object = new Object();
@@ -147,6 +168,29 @@ package
 			bottle3.visible = false;
 			bottle4.visible = false;
 			bottle5.visible = false;
+			
+			this.addEventListener(Event.ENTER_FRAME, pulse);
+		}
+		
+		private function pulse(e:Event):void
+		{
+			trace("pulse");
+			if (heartScale <= 1)
+			{
+				heartScaleDir = 1;
+			}
+			else if (heartScale >= 1.05)
+			{
+				heartScaleDir = -1;
+			}
+			trace(heartScaleDir);
+			heartScale += (heartScaleDir * 0.001);
+			trace(heartScale);
+			
+			heartBack.scaleX = heartScale;
+			heartBack.scaleY = heartScale;
+			heartFront.scaleX = heartScale;
+			heartFront.scaleY = heartScale;
 		}
 		
 		private function showBottle():void
@@ -278,7 +322,7 @@ package
 					showBottle();
 					if (winCounter == 5)
 					{
-						Main.sm.display("ECG");
+						Main.sm.display("QRS");
 					}
 					nextTurn();
 				}

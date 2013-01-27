@@ -72,11 +72,15 @@ package
 			sm.defineState("Verbal", VerbalGame);
 			sm.defineState("Simon", SimonGame);
 					
+<<<<<<< HEAD
 			sm.display("Levels");
 			var musicRequest:URLRequest = new URLRequest("music_heart.mp3");
 			var sound:Sound = new Sound();
 			sound.load(musicRequest);
 			sound.play();      
+=======
+			sm.display("Intro");
+>>>>>>> a8141c5512ffc3b4b0dc309a8367667ca69c9260
 			
 			addChild(sm);			
 		}

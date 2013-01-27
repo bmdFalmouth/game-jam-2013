@@ -11,8 +11,6 @@ package
 	public class ECG extends Sprite
 	{
 		private var back:CachedSprite;
-		private var clock:TextField;
-		private var clockCounter:int;
 		
 		private var wavePanel:CachedSprite;
 		
@@ -41,6 +39,8 @@ package
 		private var bottles:Array;
 		
 		private var winCounter:int;
+		
+		private var clock:Clock;
 				
 		public function ECG() 
 		{
@@ -55,17 +55,7 @@ package
 			addChild(indicator2);
 			addChild(indicator3);
 			
-			clockCounter = 30;
-			
-			clock = new TextField();
-			clock.defaultTextFormat = Main.font;
-			clock.embedFonts = true;
-			clock.width = 720;
-			clock.height = 200;
-			clock.y = 218;
-			clock.x = 255;
-			clock.text = "00:"+clockCounter;
-			addChild(clock);
+			createClock();
 			
 			line1 = new Sprite();
 			addChild(line1);
@@ -131,6 +121,14 @@ package
 			bottle5.visible = false;
 		}
 		
+		private function createClock():void
+		{
+			clock = new Clock();
+			clock.y = 218;
+			clock.x = 255;
+			addChild(clock);
+		}
+		
 		private function showBottle():void
 		{
 			if (winCounter == 0)
@@ -188,9 +186,9 @@ package
 			if (time < 600)
 			{
 				winCounter++;
-				if (winCounter > 5)
+				if (winCounter >= 5)
 				{
-					winCounter = 5;
+					showNextScreen();
 				}
 			}
 			else if (600 > time ? false : ( 1000 < time ? false : true ))
@@ -207,6 +205,12 @@ package
 			}
 			
 			showBottle();
+		}
+		
+		private function showNextScreen():void
+		{
+			clock.stop();
+			Main.sm.display("Levels");
 		}
 		
 		private function indicator1clicked(e:MouseEvent):void
