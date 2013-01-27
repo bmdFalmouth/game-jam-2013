@@ -31,14 +31,10 @@ package
 		public static var font:TextFormat;
 		public static var lbFont:TextFormat;
 		public static var theStage:Stage;
-		public static var timerSurvived:int;
-		public static var timerRemaining:int =300;
-		public static var previousTime:Number;
-		public var frameCount:int;
-		
-		public static var sm:StateManager;
+		public static var sm:StateManager
+		;
 		public function Main():void 
-		{
+		{	
 			font = new TextFormat();
 			font.font = "HQR";
 			font.color = 0x000000;
@@ -71,26 +67,12 @@ package
 			
 			sm.defineState("ECG", ECG);
 			sm.defineState("Operate", OperateGame);
-			sm.defineState("Pulse",  PulseGame);
 			sm.defineState("Verbal", VerbalGame);
 			sm.defineState("Simon", SimonGame);
 					
-			sm.display("Leaderboards");
-
-			addChild(sm);			
-			addEventListener(Event.ENTER_FRAME, runCounters )
-		}
-		
-		private function runCounters():void
-		{
-			frameCount++;
-			if (frameCount == 30)
-			{
-				timerSurvived++;
-				timerRemaining--;
-				frameCount = 0;
-			}
+			sm.display("Levels");
 			
+			addChild(sm);			
 		}
 		
 		private function deactivate(e:Event):void 
